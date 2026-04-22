@@ -1,0 +1,11 @@
+function ratio=findinj(Bnorm,source,target)
+
+% input Bnorm has two columns to compare
+Bnorm_source=100*Bnorm(:,source);
+Bnorm_target=Bnorm(:,target);
+max_target-Bnorm_target
+
+[mx,idx]=max(Bnorm,[],2);
+mn=min(Bnorm,[],2);
+ratio=mn./mx;
+ratio=[ratio,idx];

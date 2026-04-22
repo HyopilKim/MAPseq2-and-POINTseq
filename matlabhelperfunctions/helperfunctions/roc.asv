@@ -1,0 +1,17 @@
+function roc_plot=roc(ratio,sourceidx,binwidth)
+
+
+ratio_only=ratio(:,1);
+idx=ratio(:,2);
+trueposi=zeros(length(1:(1/binwidth)),1);
+x=zeros(length(1:(1/binwidth)),1);
+
+for i=1:(1/binwidth)
+    r=binwidth*i;
+    true=sum(idx(ratio_only<=r)==sourceidx)/sum(ratio_only<=r);
+    trueposi(i)=true;
+    x(i)=r;
+end
+
+roc_plot=[x,trueposi];
+figure;scatter(roc_plot(:,1),roc_plot(:,2));findfigs;xlabel("a"),ylabel("");
